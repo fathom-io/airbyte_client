@@ -24,11 +24,11 @@ pub struct AttemptFailureReason {
     #[serde(rename = "retryable", skip_serializing_if = "Option::is_none")]
     pub retryable: Option<bool>,
     #[serde(rename = "timestamp")]
-    pub timestamp: i64,
+    pub timestamp: Option<i64>,
 }
 
 impl AttemptFailureReason {
-    pub fn new(timestamp: i64) -> AttemptFailureReason {
+    pub fn new(timestamp: Option<i64>) -> AttemptFailureReason {
         AttemptFailureReason {
             failure_origin: None,
             failure_type: None,
